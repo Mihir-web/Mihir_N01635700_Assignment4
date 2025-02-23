@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Registration</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Workshop Registration</h2>
+        <form th:action="@{/register}" th:object="${workshop}" method="post">
+            <div style="display: flex; justify-content: space-between;">
+                <div class="form-column">
+                    <p style="float:left;">Register Now while seats are available!</p>
+                    <input type="text" th:field="*{firstName}" placeholder="First Name*" id="firstName">
+                    <p class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+
+                    
+                    <input type="text" th:field="*{lastName}" placeholder="Last Name*" id="lastName">
+                    <p class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+
+                    
+                    <input type="text" th:field="*{company}" placeholder="Company*" id="company">
+                    <p class="error" th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></p>
+
+                    
+                    <input type="text" th:field="*{address}" placeholder="Address*" id="address">
+                    <p class="error" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
+
+                    
+                    <input type="text" th:field="*{city}" placeholder="City*" id="city">
+                    <p class="error" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+
+                    
+                     <select th:field="*{country}" id="country">
+                        <option value="">Select Country*</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                    
+                    <select th:field="*{state}" id="state">
+                        <option value="">Select State*</option>
+                        <option value="California">California</option>
+                        <option value="Texas">Texas</option>
+                    </select>
+                    <p class="error" th:if="${#fields.hasErrors('state')}" th:errors="*{state}"></p>
+
+                    
+                   
+                    <p class="error" th:if="${#fields.hasErrors('country')}" th:errors="*{country}"></p>
+
+                    
+                    <input type="email" th:field="*{email}" placeholder="Email*" id="email">
+                    <p class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+                    
+                    <input type="text" th:field="*{phoneNo}" placeholder="Phone No*" id="phoneNo">
+                    <p class="error" th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"></p>
+                </div>
+
+                <div class="form-column">
+                    <h3>Lunch</h3>
+                    <hr>
+                    <select th:field="*{malperformance}" id="lunch">
+                        <option value="">Select Lunch Preferance</option>
+                        <option value="Vegetarian">Vegetarian</option>
+                        <option value="NonVegetarian">Non-Vegetarian</option>
+                    </select>
+                    <p class="error" th:if="${#fields.hasErrors('malperformance')}" th:errors="*{malperformance}"></p>
+
+                    <h3>Payment Detail</h3>
+                    <hr>
+                    <div class="payment-mode">
+                        <label>Payment Mode:</label>
+                        <div>
+                            <input type="radio" th:field="*{paymentMode}" value="Cheque"> Cheque
+                            <input type="radio" th:field="*{paymentMode}" value="Online"> Online
+                            <input type="radio" th:field="*{paymentMode}" value="DD"> DD
+                        </div>
+                    </div>
+                    <p class="error" th:if="${#fields.hasErrors('paymentMode')}" th:errors="*{paymentMode}"></p>
+
+                    <input type="text" th:field="*{chequeNo}" placeholder="Cheque No">
+                    <input type="text" th:field="*{bankName}" placeholder="Bank Name">
+                    <input type="text" th:field="*{payableAt}" placeholder="Payable At">
+                </div>
+            </div>
+
+			<div style="display:flex;">
+            <button type="submit">Submit</button>
+            <button type="reset" style="background-color:gray;">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

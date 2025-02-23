@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Workshop Registrations</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h2>Registration(s) for Workshops</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Company</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Email</th>
+                <th>Phone No</th>
+                <th>Malperformance</th>
+                <th>Payment Mode</th>
+                <th>Cheque No</th>
+                <th>Bank Name</th>
+                <th>Payable At</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="workshop : ${workshops}">
+                <td th:text="${workshop.id}"></td>
+                <td th:text="${workshop.firstName}"></td>
+                <td th:text="${workshop.lastName}"></td>
+                <td th:text="${workshop.company}"></td>
+                <td th:text="${workshop.address}"></td>
+                <td th:text="${workshop.city}"></td>
+                <td th:text="${workshop.state}"></td>
+                <td th:text="${workshop.country}"></td>
+                <td th:text="${workshop.email}"></td>
+                <td th:text="${workshop.phoneNo}"></td>
+                <td th:text="${workshop.malperformance}"></td>
+                <td th:text="${workshop.paymentMode}"></td>
+                <td th:text="${workshop.chequeNo}"></td>
+                <td th:text="${workshop.bankName}"></td>
+                <td th:text="${workshop.payableAt}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
